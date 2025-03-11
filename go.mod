@@ -1,11 +1,11 @@
 module github.com/andeya/erpc/v7
 
-go 1.21.3
+go 1.24.0
 
 require (
 	github.com/andeya/cfgo v0.0.0-20220626152948-7980c5d761c8
 	github.com/andeya/goutil v1.0.1
-	github.com/apache/thrift v0.19.0
+	github.com/apache/thrift v0.21.0
 	github.com/gogo/protobuf v1.3.2
 	github.com/montanaflynn/stats v0.7.1
 	github.com/quic-go/quic-go v0.40.0

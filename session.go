@@ -757,7 +757,10 @@ W:
 // If the session is a client role and PeerConfig.RedialTimes>0, it is automatically re-called once after a failure.
 func (s *session) Call(serviceMethod string, args interface{}, result interface{}, setting ...MessageSetting) CallCmd {
 	callCmd := s.AsyncCall(serviceMethod, args, result, make(chan CallCmd, 1), setting...)
-	<-callCmd.Done()
+	select {
+	case <-callCmd.Done():
+	case <-time.After(s.contextAge):
+	}
 	return callCmd
 }
 
